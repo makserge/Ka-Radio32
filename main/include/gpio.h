@@ -48,9 +48,9 @@
 // SPI lcd
 //---------
 // HSPI pins +
-#define PIN_LCD_CS	GPIO_NUM_13		//CS
-#define PIN_LCD_A0	GPIO_NUM_14		//A0 or D/C
-#define PIN_LCD_RST	GPIO_NUM_2		//Reset RES RST or not used
+#define PIN_LCD_CS	GPIO_NUM_5		//CS
+#define PIN_LCD_A0	GPIO_NUM_16		//A0 or D/C
+#define PIN_LCD_RST	GPIO_NUM_17		//Reset RES RST or not used
 
 // IR Signal
 //-----------
