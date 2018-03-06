@@ -1,0 +1,5 @@
+Telnet your_ip
+
+sys.lcd("197");
+
+Reboot 
