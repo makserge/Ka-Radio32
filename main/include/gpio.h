@@ -18,7 +18,7 @@
 //------------------- 
 //Set the right one with command sys.led
 // GPIO can be changed with command sys.ledgpio("x")
-#define GPIO_LED	GPIO_NUM_4		// Flashing led or Playing led
+#define GPIO_LED	GPIO_NUM_12		// Flashing led or Playing led
 
 // gpio of the vs1053
 //-------------------
@@ -30,15 +30,15 @@
 
 // Encoder knob
 //-------------
-#define PIN_ENC_A   GPIO_NUM_16		// CLK
-#define PIN_ENC_B   GPIO_NUM_17		// DT
-#define PIN_ENC_BTN GPIO_NUM_5		// SW
+#define PIN_ENC_A   GPIO_NUM_35		// CLK
+#define PIN_ENC_B   GPIO_NUM_14		// DT
+#define PIN_ENC_BTN GPIO_NUM_2		// SW
 
 // I2C lcd (and rda5807 if lcd is i2c or LCD_NONE)
 //------------------------------------------------
-#define PIN_I2C_SCL GPIO_NUM_14
-#define PIN_I2C_SDA GPIO_NUM_13
-#define PIN_I2C_RST	GPIO_NUM_2		// or not used
+#define PIN_I2C_SCL GPIO_NUM_5
+#define PIN_I2C_SDA GPIO_NUM_16
+#define PIN_I2C_RST	GPIO_NUM_17		// or not used
 
 // I2C rda5807 (if lcd is spi)
 //----------------------------
