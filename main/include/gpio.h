@@ -36,9 +36,9 @@
 
 // I2C lcd (and rda5807 if lcd is i2c or LCD_NONE)
 //------------------------------------------------
-#define PIN_I2C_SCL GPIO_NUM_5
-#define PIN_I2C_SDA GPIO_NUM_16
-#define PIN_I2C_RST	GPIO_NUM_17		// or not used
+#define PIN_I2C_SCL GPIO_NUM_32
+#define PIN_I2C_SDA GPIO_NUM_13
+#define PIN_I2C_RST	GPIO_NUM_2		// or not used
 
 // I2C rda5807 (if lcd is spi)
 //----------------------------
