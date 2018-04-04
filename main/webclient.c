@@ -43,8 +43,8 @@ static char parEmpty[] = {" "};
 const char CLIPLAY[]  = {"##CLI.PLAYING#%c%c"};
 const char CLISTOP[]  = {"##CLI.STOPPED# from %s\n"};
 
-const char strcMALLOC[]  = {"!!!!Client: incmalloc fails for %d\n"};
-const char strcMALLOC1[]  = {"!!!!%s malloc fails\n"};
+const char strcMALLOC[]  = {"Client: incmalloc fails for %d\n"};
+const char strcMALLOC1[]  = {"%s malloc fails\n"};
 const char strcWEBSOCKET[]  = {"WebClient webSocket fails %s errno: %d\n"};
 const char strcSOCKET[]  = {"WebClient Socket fails %s errno: %d\n"};
 
@@ -67,10 +67,10 @@ static struct hostent *server = NULL;
 void *incmalloc(size_t n)
 {
 	void* ret;	
-printf ("Client malloc of %d %d,  Heap size: %d\n",n,((n / 32) + 1) * 32,xPortGetFreeHeapSize( ));
+//printf ("Client malloc of %d %d,  Heap size: %d\n",n,((n / 32) + 1) * 32,xPortGetFreeHeapSize( ));
 	ret = malloc(n);
 	if (ret == NULL) printf(strcMALLOC,n);
-	if (n <4) printf("Client: incmalloc size:%d\n",n);	
+//	if (n <4) printf("Client: incmalloc size:%d\n",n);	
 	ESP_LOGV(TAG,"Client malloc after of %d bytes ret:%x  Heap size: %d",n,(int)ret,xPortGetFreeHeapSize( ));
 	return ret;
 }	
@@ -284,9 +284,6 @@ char* getMeta()
 	return (header.members.mArr[METADATA] == NULL)?parEmpty:header.members.mArr[METADATA];
 }
 
-// char b[100]="";
-
-
 static void removePartOfString(char* origine, char* remove)
 {
 	if (strlen(origine) == 0) return;
@@ -382,89 +379,87 @@ static void clientSaveMetadata(char* s,int len)
 			}
 		}
 
-		
+
 	if  ((header.members.mArr[METADATA] == NULL)||((header.members.mArr[METADATA] != NULL)&&(t!= NULL)&&(strcmp(tt,header.members.mArr[METADATA]) != 0)))
 	{
-			
+
 		// ******* Приведение букв в кодировку UTF-8 **********
 		// (c) alex08cb@mail.ru Aleksey Shevchenko aka oka275
 		// ****************************************************/
 		ESP_LOGD(TAG,"UTF-8conv: start work, RAM left:%d\n",esp_get_free_heap_size()); //Сообщение в дебаг для отладки
-				
-		char* b = incmalloc(256); //Запросили выделением памяти под временный буфер, в котором будем собирать строку. 
+
+		char* b = incmalloc(256); //Запросили выделением памяти под временный буфер, в котором будем собирать строку.
 		if (b != NULL) //Если память выделилась
 		{
-			//char p[]={0xD0,0xE0,0xE4,0xF3,0xE9,0xF1,0xFF,'\0'}; t=p;  //Тестовая строчка на проверку букв, как "Р" или "С" в кодировке CP-1251
-			//char p[]={0xD1,0xF2,0xE0,0xF0,0xE8,0xED,0xED,0xFB,0xE5,0x20,0xF7,0xE0,0xF1,0xFB,'\0'}; t=p;
 			char char_acsii[2] = { '0', '\0' };  //Буферок под простую ASCII-букву
 			char char_utf[3] = { '0','0','\0' }; //Буферок под UTF8-букву
 			int index,tLen;
 			unsigned char chr;
 			bool cp1251fnd = false;
-			chr=index=0; 		//Инициировали переменные	
+			chr=index=0; 		//Инициировали переменные
 			strcpy(b, "");		// -//-
 			tLen = strlen(t); 	//Получили длину входящего массива
-			  
-			while (index < tLen)  //Организуем цикл. Пока входящая строка не закончится, будем перебирать её побайтно. 
+
+			while (index < tLen)  //Организуем цикл. Пока входящая строка не закончится, будем перебирать её побайтно.
 			{
 				chr = t[index]; //Загружаем в переменную код буквы
-				if(chr < 127)	//Если она меньше 127, то это обычная латинская буква, цифра или знак препинания. 
-				{ 
+				if(chr < 127)	//Если она меньше 127, то это обычная латинская буква, цифра или знак препинания.
+				{
 					char_acsii[0]=chr;//Просто перекладываем ее в буферок
-					strcat(b, char_acsii); //и ДОБАВЛЯЕМ символ в выходной буфер как очень короткое слово в выходной буфер. Признак конца строки конечно тоже переносится (см.команду strcat) 
+					strcat(b, char_acsii); //и ДОБАВЛЯЕМ символ в выходной буфер как очень короткое слово в выходной буфер. Признак конца строки конечно тоже переносится (см.команду strcat)
 				}
 				else //Если код символа больше 127 (будем надеяться, что на станции сидят вменяемые люди и не будут пользоваться нестандартными символами)
-				{  
+				{
 					if((chr == 0xD0)||(chr == 0xD1)) //Если встречаем в строке код D0 или D1, то это может быть или буква Р или С в CP-1251, или первый символ пары UTF8
-					{  
+					{
 						if((index+1)>=tLen)cp1251fnd=true; //если это последний символ в строке, то это однозначно CP-1251 (или битый пакет, но мы оптимисты)
 						else  //Если это символ не последний в строке, то по закону кодировки UTF8 следующий символ должен быть в диапазоне 0x80-0xBF...
-						{	
+						{
 							if( (t[index+1] >= 0x80) && (t[index+1] <= 0xBF) ) //И если это так, то это UTF-8 кодировка, родная для "Ka-Radio".
 							{
 								char_utf[0]=t[index++]; //Кладем первый байт пары (D0 или D1)
 								char_utf[1]=t[index];	//Кладет второй байт пары (собственно, сам символ)
-								strcat(b, char_utf);	//ДОБАВЛЯЕМ символ в выходной буфер как очень короткое слово. 
+								strcat(b, char_utf);	//ДОБАВЛЯЕМ символ в выходной буфер как очень короткое слово.
 							}
 							else cp1251fnd=true;		//Если же символ не попадал в диапазон (а его код может быть только больше этого диапазона), то это CP-1251
 						}
-					}		
+					}
 					else	cp1251fnd=true; //Если символ сразу не попал в диапазон D0-D1, то это кодировка CP-1251
-													
+
 					if(cp1251fnd)  //Если флаг установлен, то перекодируем символ
 					{
 						chr=chr-48; //Большинство кодов символов CP-1251 больше кодов UTF-8 ровно на число 48, за небольшим исключением. Вычитаем!
 						if(chr > 0xBF) //Если получился код больше числа 0xBF, то эта буква находится в следующем банке 0xD1 и разница увеличивается еще на число 64 (всего 112)
 						{
 						char_utf[0]=0xD1;	 //Кладем первый байт пары (D1)
-						char_utf[1]=chr-64;  //Вычитаем дополнительно цифру 64 и получаем код символа в UTF-8. Кладем второй байт пары. 
+						char_utf[1]=chr-64;  //Вычитаем дополнительно цифру 64 и получаем код символа в UTF-8. Кладем второй байт пары.
 						}
 						else
 						{
 						char_utf[0]=0xD0;	//Если символ не превышал 0xBF, то значит он из первого банка 0xD0
 						char_utf[1]=chr;    //Кладем второй байт без изменений (48 мы уже вычли выше)
 						}
-						strcat(b, char_utf); //ДОБАВЛЯЕМ символ в выходной буфер как очень короткое слово. 
-					}							
+						strcat(b, char_utf); //ДОБАВЛЯЕМ символ в выходной буфер как очень короткое слово.
+					}
 				}
-				index++; //Увеличиваем индекс-указатель на следующий код символа во входном буфере. 
+				index++; //Увеличиваем индекс-указатель на следующий код символа во входном буфере.
 				cp1251fnd = false; //Сбрасываем флаг
 			}
 			len = strlen(b); //Получаем размер выходного буфера
-			if(len > 256) {ESP_LOGD(TAG,"UTF-8conv: string over 256 bytes!" ); incfree(b,"UTF-8 b-overload");return; } 
+			if(len > 256) {ESP_LOGD(TAG,"UTF-8conv: string over 256 bytes!" ); incfree(b,"UTF-8 b-overload");return; }
 			//Окончание перекодировки.
 			ESP_LOGD(TAG,"UTF-8conv: work complete, tag=%s RAM left:%d\n",b,esp_get_free_heap_size()); //Сообщение в дебаг для отладки
 		}
 		else //Если память не выделилалсь
-		{ 
+		{
 			printf(strcMALLOC1,"utf8_normalize"); //Сообщаем
 			return; //Застреливаемся.
 	    }
-						
-			
-		if (header.members.mArr[METADATA] != NULL) incfree(header.members.mArr[METADATA],"metad"); 
-		header.members.mArr[METADATA] = (char*)incmalloc((len+3)*sizeof(char)); 
-		if(header.members.mArr[METADATA] == NULL) //Если память не выделилась, то сообщаем и выходим. 
+
+
+		if (header.members.mArr[METADATA] != NULL) incfree(header.members.mArr[METADATA],"metad");
+		header.members.mArr[METADATA] = (char*)incmalloc((len+3)*sizeof(char));
+		if(header.members.mArr[METADATA] == NULL) //Если память не выделилась, то сообщаем и выходим.
 		{	printf(strcMALLOC1,"metad");
 			incfree(tt,"");
 			return;
@@ -475,7 +470,7 @@ static void clientSaveMetadata(char* s,int len)
 		header.members.mArr[METADATA] = stringify(header.members.mArr[METADATA],len);
 		//	dump((uint8_t*)(header.members.mArr[METADATA]),strlen(header.members.mArr[METADATA]));
 
-		clientPrintMeta(); 
+		clientPrintMeta();
 		ESP_LOGD(TAG,"start blank, RAM left:%d\n",esp_get_free_heap_size()); //Сообщение в дебаг для отладки
 		while ((header.members.mArr[METADATA][strlen(header.members.mArr[METADATA])-1] == ' ')||
 			(header.members.mArr[METADATA][strlen(header.members.mArr[METADATA])-1] == '\r')||
@@ -484,31 +479,24 @@ static void clientSaveMetadata(char* s,int len)
 		{
 			header.members.mArr[METADATA][strlen(header.members.mArr[METADATA])-1] = 0; // avoid blank at end
 		}
-		incfree(b,"b-buffer!");	
+		incfree(b,"b-buffer!");
 		ESP_LOGD(TAG,"blank complete, RAM left:%d\n",esp_get_free_heap_size()); //Сообщение в дебаг для отладки
 		// send station name if no metadata
-		if (strlen(header.members.mArr[METADATA])!=0)			
+		if (strlen(header.members.mArr[METADATA])!=0)
 			t_end = header.members.mArr[METADATA];
-		else	
+		else
 			t_end = (header.members.single.name ==NULL)?"":header.members.single.name;
-	
+
 		char* title = incmalloc(strlen(t_end)+15);
 		if (title != NULL)
 		{
-			sprintf(title,"{\"meta\":\"%s\"}",t_end); 
+			sprintf(title,"{\"meta\":\"%s\"}",t_end);
 			websocketbroadcast(title, strlen(title));
 			incfree(title,"title");
-		} else printf(strcMALLOC1,"Title"); 
+		} else printf(strcMALLOC1,"Title");
 	}
 		incfree(tt,"");
-		
 }	
-
-
-
-
-
-
 
 // websocket: next station
 void wsStationNext()
@@ -777,12 +765,12 @@ void clientConnect()
 void clientConnectOnce()
 {
 	cstatus = C_HEADER;
-	once = 1; // play one time
 	if((server = (struct hostent*)gethostbyname(clientURL))) {
 		xSemaphoreGive(sConnect);
 	} else {
 		clientDisconnect("clientConnectOnce");
 	}
+	once = 1; // play one time
 }
 void clientSilentConnect()
 {
@@ -798,6 +786,11 @@ void clientSilentDisconnect()
 {
 	xSemaphoreGive(sDisconnect);
 	audio_player_stop();
+	for (int i = 0;i<100;i++)
+	{
+		if(!clientIsConnected())break;
+		vTaskDelay(1);
+	}	
 	
 }
 
@@ -806,6 +799,11 @@ void clientDisconnect(const char* from)
 	kprintf(CLISTOP,from);
 	xSemaphoreGive(sDisconnect);
 	audio_player_stop();
+	for (int i = 0;i<100;i++)
+	{
+		if(!clientIsConnected())break;
+		vTaskDelay(1);
+	}	
 	if ((from[0]!='C') || (from[1]!='_'))
 		if (!ledStatus) gpio_set_level(getLedGpio(),0);
 	vTaskDelay(6);
@@ -1144,6 +1142,7 @@ ESP_LOGD(TAG,"mt2 len:%d, clen:%d, metad:%d, l:%d, inpdata:%x,  rest:%d",len,cle
 			setVolumei(0);
 			playing=1;
 			if (once == 0)vTaskDelay(20);
+			else vTaskDelay(1);
 			setVolumei(getVolume());
 			kprintf(CLIPLAY,0x0d,0x0a);
 			if (!ledStatus) gpio_set_level(getLedGpio(),1);
