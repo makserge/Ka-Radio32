@@ -52,7 +52,7 @@
   volatile Button button;
   bool doubleClickEnabled;
   bool buttonHeldEnabled;
-  bool buttonOnPinZeroEnabled = false;
+  bool buttonOnPinZeroEnabled = true;
   uint16_t keyDownTicks = 0;
   uint16_t doubleClickTicks = 0;
   uint16_t buttonHoldTime = BTN_HOLDTIME;

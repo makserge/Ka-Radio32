@@ -30,15 +30,15 @@
 
 // Encoder knob
 //-------------
-#define PIN_ENC_A   GPIO_NUM_35		// CLK
-#define PIN_ENC_B   GPIO_NUM_14		// DT
-#define PIN_ENC_BTN GPIO_NUM_2		// SW
+#define PIN_ENC_A   GPIO_NUM_2		// CLK
+#define PIN_ENC_B   GPIO_NUM_4		// DT
+#define PIN_ENC_BTN GPIO_NUM_0		// SW
 
 // I2C lcd (and rda5807 if lcd is i2c or LCD_NONE)
 //------------------------------------------------
 #define PIN_I2C_SCL GPIO_NUM_32
 #define PIN_I2C_SDA GPIO_NUM_13
-#define PIN_I2C_RST	GPIO_NUM_2		// or not used
+#define PIN_I2C_RST	GPIO_NUM_35		// or not used
 
 // I2C rda5807 (if lcd is spi)
 //----------------------------
