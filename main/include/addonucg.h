@@ -17,6 +17,7 @@ void drawTimeUcg(uint8_t mTscreen,struct tm *dt,unsigned timein);
 void lcd_initUcg(uint8_t* lcd_type);
 void setVolumeUcg(uint16_t vol);
 void drawLinesUcg();
+ucg_int_t ucgDrawString(ucg_t *ucg, ucg_int_t x, ucg_int_t y, uint8_t dir, const char *str);
 
 
 #endif /* ADDONUCG_H_ */

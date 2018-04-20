@@ -160,19 +160,19 @@ void lcd_welcome(char* ip)
     char *url = "Stopped";// get_url(); // play_url();	
 	if (strlen(ip)==0) ClearBuffer();
     if (isColor) 
-		ucg_SetFont(&ucg,ucg_font_helvR14_tf );
+		ucg_SetFont(&ucg,win_crox1t );
 	else  u8g2_SetFont(&u8g2,u8g2_font_helvR14_tf );
 	if (GetWidth() <=64)
 		DrawString(2,2,"KaRadio32");
     else DrawString(10,2,"KaRadio32");
-	if (isColor) ucg_SetFont(&ucg,ucg_font_6x10_tf);
+	if (isColor) ucg_SetFont(&ucg,win_crox1t);
 	else u8g2_SetFont(&u8g2,u8g2_font_6x10_tf);
 	DrawString(2,24,"WiFi Webradio");
 	DrawColor(0,0,0,0);
 	DrawBox(2, 40, 128-30, 12);
 	DrawColor(1,255,255,255);
 	DrawString(2,40,url);
-	DrawString( DrawString(2,53,"IP")+18,53,ip);
+	DrawString( DrawString(2,53,"IP")+10,53,ip);
 	if (!(isColor)) u8g2_SendBuffer(&u8g2);
 }
 

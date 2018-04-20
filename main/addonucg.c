@@ -18,6 +18,7 @@
 #include "esp_log.h"
 #include "logo.h"
 #include "interface.h"
+#include "convert_utf8_to_windows1251.h"
 #define TAG  "addonucg"
 
 
@@ -39,13 +40,9 @@
 #define STATION1  1
 #define STATION2  2
 #define IP        3
-#define GENRE     2
-#define TITLE1    3
-#define TITLE11   4
-#define TITLE2    5
-#define TITLE21   6
-#define VOLUME    7
-#define TIME      8
+#define TITLE1    2
+#define TITLE2    3
+#define TIME      4
 
 #define BUFLEN  256
 #define LINES	9
@@ -70,7 +67,6 @@ static uint8_t  tline[LINES] ;
 static uint8_t  mline[LINES] ; // mark to display
 
 static char nameNum[5] ; // the number of the current station
-static char genre[BUFLEN/2]; // the local name of the station
 
 static char TTitleStr[15];
 static char TTimeStr[15];
@@ -93,7 +89,7 @@ void setfont(sizefont size)
 			ucg_SetFont(&ucg,ucg_font_4x6_mf);
 			break;
 			case 96:
-			ucg_SetFont(&ucg,ucg_font_u8glib_4_hf);
+			ucg_SetFont(&ucg,win_crox1t);
 			break;
 			case 132:
 			default: // 160
@@ -111,7 +107,7 @@ void setfont(sizefont size)
 			ucg_SetFont(&ucg,ucg_font_5x7_mf);
 			break;
 			case 96:
-			ucg_SetFont(&ucg,ucg_font_4x6_mf);
+			ucg_SetFont(&ucg,win_crox1t);
 			break;
 			case 132:
 			default: // 160
@@ -129,7 +125,7 @@ void setfont(sizefont size)
 			ucg_SetFont(&ucg,ucg_font_7x14_mf);
 			break;
 			case 96:
-			ucg_SetFont(&ucg,ucg_font_6x12_mf);
+			ucg_SetFont(&ucg,win_crox1t);
 			break;
 			case 132:
 			default: // 160
@@ -148,7 +144,7 @@ void setfont(sizefont size)
 			ucg_SetFont(&ucg,ucg_font_helvR12_hf); 
 			break;
 			case 96:
-			ucg_SetFont(&ucg,ucg_font_helvR12_hf); 
+			ucg_SetFont(&ucg,win_crox1t);
 			break;
 			case 132:
 			default: // 160
@@ -193,20 +189,51 @@ void cleartitleUcg(uint8_t froml)
 }
 
 ////////////////////////////////////////
-void removeUtf8(char *characters)
+
+void convertUtf8ToCp1251(char *input, char* out, size_t n)
 {
-  int Rindex = 0;
-  while (characters[Rindex])
-  {
-    if ((characters[Rindex] >= 0xc2)&&(characters[Rindex] <= 0xc3)) // only 0 to FF ascii char
-    {
-      characters[Rindex+1] = ((characters[Rindex]<<6)&0xFF) | (characters[Rindex+1] & 0x3F);
-      int sind = Rindex+1;
-      while (characters[sind]) { characters[sind-1] = characters[sind];sind++;}
-      characters[sind-1] = 0;
-    }
-    Rindex++;
-  }
+	int i = 0;
+	int j = 0;
+	for (; i < (int)n && input[i] != 0; ++i) {
+		char prefix = input[i];
+		char suffix = input[i+1];
+		if ((prefix & 0x80) == 0) {
+			out[j] = (char)prefix;
+			++j;
+		}
+		else if ((~prefix) & 0x20) {
+			int first5bit = prefix & 0x1F;
+			first5bit <<= 6;
+			int sec6bit = suffix & 0x3F;
+			int unicode_char = first5bit + sec6bit;
+			if (unicode_char >= 0x410 && unicode_char <= 0x44F) {
+				out[j] = (char)(unicode_char - 0x350);
+			}
+			else if (unicode_char >= 0x80 && unicode_char <= 0xFF) {
+				out[j] = (char)(unicode_char);
+			}
+			else if (unicode_char >= 0x402 && unicode_char <= 0x403) {
+				out[j] = (char)(unicode_char - 0x382);
+			}
+			else {
+				int count = sizeof(g_letters) / sizeof(Letter);
+				for (int k = 0; k < count; ++k) {
+					if (unicode_char == g_letters[k].unicode) {
+						out[j] = g_letters[k].win1251;
+						goto NEXT_LETTER;
+					}
+				}
+				return;
+			}
+			NEXT_LETTER:
+			++i;
+			++j;
+		}
+		else {
+			return;
+		}
+	}
+	out[j] = 0;
 }
 
 // Mark the lines to draw
@@ -264,23 +291,28 @@ void setColor(int i)
         switch(i){
           case STATIONNAME: ucg_SetColori(&ucg,0,0,0); break;
           case STATION1: ucg_SetColori(&ucg,255,255,255); break;
-          case STATION2: ucg_SetColori(&ucg,255,200,200);  break;
+          // case STATION2: ucg_SetColori(&ucg,255,200,200);  break;
           case TITLE1:
-          case TITLE11: ucg_SetColori(&ucg,255,255,0);  break;
-          case TITLE2:
-          case TITLE21: ucg_SetColori(&ucg,0,255,255); break; 
-          case VOLUME:  ucg_SetColori(&ucg,200,200,255); break; 
+          //case TITLE11:
+          case TITLE2: ucg_SetColori(&ucg,255,255,0);  break;
+         // case TITLE21: ucg_SetColori(&ucg,255,255,0);  break;
+         // case VOLUME:  ucg_SetColori(&ucg,200,200,255); break;
           default:ucg_SetColor(&ucg,0,CBODY);  
         }  
+}
+
+ucg_int_t ucgDrawString(ucg_t *ucg, ucg_int_t x, ucg_int_t y, uint8_t dir, const char *str)
+{
+	char output[OLED_LINE_MAX] = {0};
+	convertUtf8ToCp1251(str, output, OLED_LINE_MAX);
+	return ucg_DrawString(ucg, x, y, dir, output);
 }
 
 ////////////////////
 // draw one line
 void draw(int i)
 {
-	uint16_t len,xpos,yyy;
-	 
-    if ( mline[i]) mline[i] =0;
+	if ( mline[i]) mline[i] = 0;
     if (i >=3) z = y/2 ; else z = 0;
     switch (i) {
         case STATIONNAME:
@@ -290,62 +322,21 @@ void draw(int i)
         ucg_SetColori(&ucg,0,0,0);  
 		if (lline[i] != NULL)
 		{
-			if (nameNum[0] ==0)  ucg_DrawString(&ucg,1,1,0,lline[i]+iline[i]);
+			if (nameNum[0] ==0)  ucgDrawString(&ucg,1,1,0,lline[i]+iline[i]);
 			else 
 			{
-			ucg_DrawString(&ucg,1,1,0,nameNum);
-			ucg_DrawString(&ucg,ucg_GetStrWidth(&ucg,nameNum)-2,1,0,lline[i]+iline[i]);
+			ucgDrawString(&ucg,1,1,0,nameNum);
+			ucgDrawString(&ucg,ucg_GetStrWidth(&ucg,nameNum)-2,1,0,lline[i]+iline[i]);
 			}
-		}
-        break;
-        case VOLUME:
- 		if ((yy > 64)||(lline[TITLE21] == NULL)||(strlen(lline[TITLE21]) ==0))
-		{
-          ucg_SetColori(&ucg,0,0,200); 
-		  if (yy <= 64)
-		  {
-			ucg_DrawFrame(&ucg,0,yy-10,x/3,8); 
-			ucg_SetColori(&ucg,255,0,0); 
-			ucg_DrawBox(&ucg,1,yy-9,((uint16_t)(x/3*volume)/255),6); 
-		  }
-		  else
-		  {
-			ucg_DrawFrame(&ucg,0,yy-10,x/2,8); 
-			ucg_SetColori(&ucg,255,0,0); 
-			ucg_DrawBox(&ucg,1,yy-9,((uint16_t)(x/2*volume)/255),6); 
-		  }
-		}		  
-        break;
-        case TIME:
- 		if ((yy > 64)||(lline[TITLE21] == NULL)||(strlen(lline[TITLE21]) ==0))
-		{
-		  setfont(small);
-          len = ucg_GetStrWidth(&ucg,strsec);
-          ucg_SetColori(&ucg,250,250,255); 
-          ucg_SetColor(&ucg,1,CBLACK); 
-          ucg_SetFontMode(&ucg,UCG_FONT_MODE_SOLID);
-		  if (yy <= 64)
-		  {
-			xpos = (5*x/8)-(len/2);
-			yyy = yy -10;
-			ucg_DrawString(&ucg,xpos,yyy,0,strsec); 
-		  } else
-		  {
-			xpos = (3*x/4)-(len/2);
-			yyy = yy -10;
-			ucg_DrawString(&ucg,xpos,yyy,0,strsec); 
-		  }			  
-          ucg_SetFontMode(&ucg,UCG_FONT_MODE_TRANSPARENT);
 		}
         break;
         default:
           ucg_SetColori(&ucg,0,0,0); 
           ucg_DrawBox(&ucg,0,y*i+z,x,y/*-ucg_GetFontDescent(&ucg)*/); 
           setColor(i);
-          if (lline[i] != NULL) ucg_DrawString(&ucg,0,y*i+z+1,0,lline[i]+iline[i]);                
+          if (lline[i] != NULL) ucgDrawString(&ucg,0,y*i+z+1,0,lline[i]+iline[i]);
    }      
 }
-
 
 ////////////////////////////////////////
 // draw the full screen
@@ -373,7 +364,6 @@ int i;
 		setfont(text);
 		ucg_SetColor(&ucg,0,255,255,0);  
 		ucg_SetColor(&ucg,1,0,255,255);  
-		ucg_DrawGradientLine(&ucg,0,(4*y) - (y/2)-5,x,0);
 		ucg_SetColor(&ucg,0,CBLACK);  
 		ucg_DrawBox(&ucg,0,0,x-1,15);  
 		for (i=0;i<LINES;i++) draw(i);
@@ -405,7 +395,7 @@ void drawTTitleUcg(char* ttitle)
 		ucg_SetColor(&ucg,0,CTBACK);  
 		ucg_DrawBox(&ucg,0,0,x,HHeader); 
 		ucg_SetColor(&ucg,0,CTTFONT);  
-		ucg_DrawString(&ucg,xxx,(HHeader-ucg_GetFontAscent(&ucg))>>1,0,ttitle);
+		ucgDrawString(&ucg,xxx,(HHeader-ucg_GetFontAscent(&ucg))>>1,0,ttitle);
 		strcpy(TTitleStr,ttitle);
 	}
 }
@@ -425,7 +415,7 @@ void drawNumberUcg(uint8_t mTscreen,char* irStr)
         ucg_DrawBox(&ucg,0,HHeader,x,yy);     
         setfont(large);
         ucg_SetColor(&ucg,0,CBODY);  
-        ucg_DrawString(&ucg,xxx,yy/3,0, irStr);
+        ucgDrawString(&ucg,xxx,yy/3,0, irStr);
         break;
       default:; 
     }  
@@ -451,10 +441,10 @@ void drawStationUcg(uint8_t mTscreen,char* snum,char* ddot)
 //        ddot = strstr(sline,":");
         if (ddot != NULL)
         {
-          ucg_DrawString(&ucg,(x/2)-(ucg_GetStrWidth(&ucg,snum)/2),yy/3,0,snum);
+          ucgDrawString(&ucg,(x/2)-(ucg_GetStrWidth(&ucg,snum)/2),yy/3,0,snum);
           len = (x/2)-(ucg_GetStrWidth(&ucg,ddot)/2);
           if (len <0) len = 0;
-          ucg_DrawString(&ucg,len,yy/3 + ucg_GetFontAscent(&ucg)+y,0, ddot);
+          ucgDrawString(&ucg,len,yy/3 + ucg_GetFontAscent(&ucg)+y,0, ddot);
         }
         break;
       default:; 
@@ -466,7 +456,7 @@ void drawStationUcg(uint8_t mTscreen,char* snum,char* ddot)
 
 void drawVolumeUcg(uint8_t mTscreen,char* aVolume)
 {
-  char vlstr[] = {"Volume"};
+  char vlstr[] = {"Громкость"};
   volume = atoi(aVolume);
     switch (mTscreen){
       case 1: 
@@ -486,7 +476,7 @@ void drawVolumeUcg(uint8_t mTscreen,char* aVolume)
 //        ucg_DrawBox(&ucg,0,HHeader,x,yy);     
         ucg_DrawBox(&ucg,0,yy/3,x,ucg_GetFontAscent(&ucg)+2);     
         ucg_SetColor(&ucg,0,CBODY);  
-        ucg_DrawString(&ucg,xxx,yy/3,0,aVolume); 
+        ucgDrawString(&ucg,xxx,yy/3,0,aVolume);
 		//ucg_SetFontMode(&ucg,UCG_FONT_MODE_TRANSPARENT);
         break;
       default:; 
@@ -509,7 +499,7 @@ static void drawSecond(struct tm *dt,unsigned timein)
   ucg_SetColor(&ucg,1,CBLACK); 
   ucg_SetFontMode(&ucg,UCG_FONT_MODE_SOLID); 
   ucg_SetColor(&ucg,0,CBODY);
-  ucg_DrawString(&ucg,x-len-8,yy-18,0,strseco); 
+  ucgDrawString(&ucg,x-len-28,yy/3,0,strseco);
   ucg_SetFontMode(&ucg,UCG_FONT_MODE_TRANSPARENT);
   insec = timein; //to avoid redisplay
   }    
@@ -532,12 +522,13 @@ void drawTimeUcg(uint8_t mTscreen,struct tm *dt,unsigned timein)
 //        ucg_DrawBox(&ucg,0,HHeader,x,yy);     		
         // draw ip
         //ucg_SetFont(&ucg,ucg_font_6x13_tf);
-        ucg_DrawString(&ucg,4,yy-18,0,strdate);		
+        ucgDrawString(&ucg,4,yy-18,0,strdate);
+        break;
       case 2:
-	    if (getDdmm())
-			sprintf(strdate,"%02d-%02d-%04d", dt->tm_mday, dt->tm_mon+1,  dt->tm_year+1900);
-	    else
-			sprintf(strdate,"%02d-%02d-%04d", dt->tm_mon+1, dt->tm_mday, dt->tm_year+1900);
+	    //if (getDdmm())
+		sprintf(strdate,"%02d/%02d/%04d", dt->tm_mday, dt->tm_mon+1,  dt->tm_year+1900);
+	    //else
+		//	sprintf(strdate,"%02d-%02d-%04d", dt->tm_mon+1, dt->tm_mday, dt->tm_year+1900);
 		drawTTitleUcg(strdate);
 		if (strcmp(TTimeStr,strtime)!= 0)
 		{	
@@ -545,7 +536,7 @@ void drawTimeUcg(uint8_t mTscreen,struct tm *dt,unsigned timein)
 			setfont(large);
 			ucg_SetColor(&ucg,0,CBODY);		
 			ucg_SetFontMode(&ucg,UCG_FONT_MODE_SOLID); 
-			ucg_DrawString(&ucg,(x/2)-(ucg_GetStrWidth(&ucg,strtime)/2),yy/3,0,strtime); 
+			ucgDrawString(&ucg,(x/2)-((ucg_GetStrWidth(&ucg,strtime)*1.5)/2),yy/3,0,strtime);
 			strcpy(TTimeStr,strtime);
 			ucg_SetFontMode(&ucg,UCG_FONT_MODE_TRANSPARENT);
 		}
@@ -573,70 +564,36 @@ void separatorUcg(char* from)
 	  from[interp-from]= 0;
 	  lline[(from==station)?STATION1:TITLE1] = from;
 	  lline[(from==station)?STATION2:TITLE2] = interp+3;
-    mline[(from==station)?STATION1:TITLE1]=1;
-    mline[(from==station)?STATION2:TITLE2]=1;
-	} else
+      mline[(from==station)?STATION1:TITLE1]=1;
+    }
+	else
 	{
 	  lline[(from==station)?STATION1:TITLE1] = from;
-    mline[(from==station)?STATION1:TITLE1]=1;
+      mline[(from==station)?STATION1:TITLE1]=1;
 	}
-
-// 2 lines for Title
- if ((lline[TITLE1]!= NULL)&&(from == title)&&(ucg_GetStrWidth(&ucg,lline[TITLE1]) > x))
- {
-    int idx = strlen(lline[TITLE1]);
-    *(lline[TITLE1]+idx) = ' ';
-    *(lline[TITLE1]+idx+1) = 0;
-    while ((ucg_GetStrWidth(&ucg,lline[TITLE1]) > x)&&(idx !=0))
-    {
-      *(lline[TITLE1]+idx--)= ' ';
-      while ((*(lline[TITLE1]+idx)!= ' ')&&(idx !=0)) idx--;
-      if (idx != 0) *(lline[TITLE1]+idx)= 0;
-    }
-    lline[TITLE11] = lline[TITLE1]+idx+1;
-    mline[TITLE11]=1; 
- }
- 
- if ((lline[TITLE2]!= NULL)&&(from == title)&&(ucg_GetStrWidth(&ucg,lline[TITLE2]) > x))
- {
-    int idx = strlen(lline[TITLE2]);
-    *(lline[TITLE2]+idx) = ' ';
-    *(lline[TITLE2]+idx+1) = 0;
-    while ((ucg_GetStrWidth(&ucg,lline[TITLE2]) > x)&&(idx !=0))
-    {
-      *(lline[TITLE2]+idx--)= ' ';
-      while ((*(lline[TITLE2]+idx)!= ' ')&&(idx !=0)) idx--;
-      if (idx != 0) *(lline[TITLE2]+idx)= 0;
-    }
-    lline[TITLE21] = lline[TITLE2]+idx+1;
-    mline[TITLE21]=1; 
- }
 }
 
 //cli.meta
 void metaUcg(char* ici)
 {
      cleartitleUcg(3); 
-     strcpy(title,ici+7);    
-	 removeUtf8(title);
-     separatorUcg(title); 	
+     strcpy(title, ici + 7);
+
+     separatorUcg(title);
 }
 
 //cli.icy4
 void icy4Ucg(char* ici)
 {
-	 strcpy(genre,ici+7);
-     removeUtf8(genre); 
-     lline[2] = genre;
+
 }
 //cli.icy0
 void icy0Ucg(char* ici)
 {
       clearAllUcg();
-      if (strlen(ici+7) == 0) strcpy (station,nameset);
-      else strcpy(station,ici+7);
-	  removeUtf8(station);
-      separatorUcg(station);	
+      if (strlen(ici+7) == 0) strcpy (station, nameset);
+      else strcpy(station, ici + 7);
+      separatorUcg(station);
 }
 
 //cli.stopped or label
@@ -659,7 +616,7 @@ void namesetUcg(char* ici)
 	   setFuturNum(atoi(nameNum));     
     }
     strcpy(nameset,nameset+strlen(nameNum));
-	removeUtf8(nameset);
+    char output[OLED_LINE_MAX] = {0};
     lline[STATIONNAME] = nameset;
 }
 

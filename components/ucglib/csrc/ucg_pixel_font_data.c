@@ -1,7 +1,8 @@
+#include "win_crox1t.h"
 #include "ucg.h"
 /*
   Fontname: FreeType-04b03b-Medium-R-Normal--8-80-72-72-P-39-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 96/97
   BBX Build Mode: 1
 */
@@ -65,7 +66,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03b_hf[902] UCG_FONT_SECTION("ucg_font_04b
   116,124,108,0,0,0};
 /*
   Fontname: FreeType-04b03b-Medium-R-Normal--8-80-72-72-P-39-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 18/97
   BBX Build Mode: 1
 */
@@ -84,7 +85,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03b_hn[179] UCG_FONT_SECTION("ucg_font_04b
   0,0,0};
 /*
   Fontname: FreeType-04b03b-Medium-R-Normal--8-80-72-72-P-39-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 95/97
   BBX Build Mode: 1
 */
@@ -148,7 +149,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03b_hr[896] UCG_FONT_SECTION("ucg_font_04b
   };
 /*
   Fontname: FreeType-04b03b-Medium-R-Normal--8-80-72-72-P-39-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 96/97
   BBX Build Mode: 0
 */
@@ -201,7 +202,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03b_tf[732] UCG_FONT_SECTION("ucg_font_04b
   7,212,119,145,20,1,160,4,64,50,0,0};
 /*
   Fontname: FreeType-04b03b-Medium-R-Normal--8-80-72-72-P-39-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 18/97
   BBX Build Mode: 0
 */
@@ -217,7 +218,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03b_tn[143] UCG_FONT_SECTION("ucg_font_04b
   8,108,54,74,181,200,0,58,6,217,42,34,1,0,0};
 /*
   Fontname: FreeType-04b03b-Medium-R-Normal--8-80-72-72-P-39-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 95/97
   BBX Build Mode: 0
 */
@@ -270,7 +271,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03b_tr[728] UCG_FONT_SECTION("ucg_font_04b
   7,212,119,145,20,1,0,0};
 /*
   Fontname: FreeType-04b03-Medium-R-Normal--8-80-72-72-P-38-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 96/97
   BBX Build Mode: 1
 */
@@ -334,7 +335,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03_hf[898] UCG_FONT_SECTION("ucg_font_04b_
   0,0};
 /*
   Fontname: FreeType-04b03-Medium-R-Normal--8-80-72-72-P-38-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 18/97
   BBX Build Mode: 1
 */
@@ -352,7 +353,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03_hn[168] UCG_FONT_SECTION("ucg_font_04b_
   58,6,114,170,44,5,0,0};
 /*
   Fontname: FreeType-04b03-Medium-R-Normal--8-80-72-72-P-38-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 95/97
   BBX Build Mode: 1
 */
@@ -415,7 +416,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03_hr[893] UCG_FONT_SECTION("ucg_font_04b_
   24,69,58,6,126,7,125,58,221,153,1,0,0};
 /*
   Fontname: FreeType-04b03-Medium-R-Normal--8-80-72-72-P-38-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 96/97
   BBX Build Mode: 0
 */
@@ -470,7 +471,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03_tf[765] UCG_FONT_SECTION("ucg_font_04b_
   126,7,212,119,73,37,0,160,4,64,50,0,0};
 /*
   Fontname: FreeType-04b03-Medium-R-Normal--8-80-72-72-P-38-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 18/97
   BBX Build Mode: 0
 */
@@ -487,7 +488,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03_tn[158] UCG_FONT_SECTION("ucg_font_04b_
   108,118,42,166,13,146,2,58,5,217,42,41,0,0};
 /*
   Fontname: FreeType-04b03-Medium-R-Normal--8-80-72-72-P-38-ISO10646-1
-  Copyright: 19992003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 19992003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 95/97
   BBX Build Mode: 0
 */
@@ -542,7 +543,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_03_tr[761] UCG_FONT_SECTION("ucg_font_04b_
   126,7,212,119,73,37,0,0,0};
 /*
   Fontname: FreeType-04b24-Medium-R-Normal--8-80-72-72-P-32-ISO10646-1
-  Copyright: 20002003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 20002003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 102/106
   BBX Build Mode: 1
 */
@@ -601,7 +602,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_24_hf[824] UCG_FONT_SECTION("ucg_font_04b_
   116,156,40,233,41,6,0,0};
 /*
   Fontname: FreeType-04b24-Medium-R-Normal--8-80-72-72-P-32-ISO10646-1
-  Copyright: 20002003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 20002003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 18/106
   BBX Build Mode: 1
 */
@@ -618,7 +619,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_24_hn[158] UCG_FONT_SECTION("ucg_font_04b_
   116,140,165,203,150,2,58,6,114,170,44,5,0,0};
 /*
   Fontname: FreeType-04b24-Medium-R-Normal--8-80-72-72-P-32-ISO10646-1
-  Copyright: 20002003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 20002003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 95/106
   BBX Build Mode: 1
 */
@@ -674,7 +675,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_24_hr[768] UCG_FONT_SECTION("ucg_font_04b_
   };
 /*
   Fontname: FreeType-04b24-Medium-R-Normal--8-80-72-72-P-32-ISO10646-1
-  Copyright: 20002003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 20002003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 102/106
   BBX Build Mode: 0
 */
@@ -729,7 +730,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_24_tf[759] UCG_FONT_SECTION("ucg_font_04b_
   107,228,42,171,2,0,0};
 /*
   Fontname: FreeType-04b24-Medium-R-Normal--8-80-72-72-P-32-ISO10646-1
-  Copyright: 20002003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 20002003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 18/106
   BBX Build Mode: 0
 */
@@ -745,7 +746,7 @@ const ucg_fntpgm_uint8_t ucg_font_04b_24_tn[133] UCG_FONT_SECTION("ucg_font_04b_
   149,40,0,0,0};
 /*
   Fontname: FreeType-04b24-Medium-R-Normal--8-80-72-72-P-32-ISO10646-1
-  Copyright: 20002003 / yuji oshimoÿo / 04@dsg4.com / www.04.jp.org
+  Copyright: 20002003 / yuji oshimoï¿½o / 04@dsg4.com / www.04.jp.org
   Glyphs: 95/106
   BBX Build Mode: 0
 */
@@ -25937,7 +25938,7 @@ const ucg_fntpgm_uint8_t ucg_font_cursor_tr[390] UCG_FONT_SECTION("ucg_font_curs
   140,156,16,0,0,0};
 /*
   Fontname: FreeType-fixed_v01-Medium-R-Normal--8-80-72-72-P-51-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 176/181
   BBX Build Mode: 1
 */
@@ -26080,7 +26081,7 @@ const ucg_fntpgm_uint8_t ucg_font_fixed_v0_hf[2174] UCG_FONT_SECTION("ucg_font_f
   234,72,150,100,73,150,100,209,144,70,19,0,0,0};
 /*
   Fontname: FreeType-fixed_v01-Medium-R-Normal--8-80-72-72-P-51-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 18/181
   BBX Build Mode: 1
 */
@@ -26100,7 +26101,7 @@ const ucg_fntpgm_uint8_t ucg_font_fixed_v0_hn[202] UCG_FONT_SECTION("ucg_font_fi
   9,254,126,56,205,193,52,4,0,0};
 /*
   Fontname: FreeType-fixed_v01-Medium-R-Normal--8-80-72-72-P-51-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 95/181
   BBX Build Mode: 1
 */
@@ -26178,7 +26179,7 @@ const ucg_fntpgm_uint8_t ucg_font_fixed_v0_hr[1127] UCG_FONT_SECTION("ucg_font_f
   81,146,232,172,0,0,0};
 /*
   Fontname: FreeType-fixed_v01-Medium-R-Normal--8-80-72-72-P-51-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 95/181
   BBX Build Mode: 3
 */
@@ -26265,7 +26266,7 @@ const ucg_fntpgm_uint8_t ucg_font_fixed_v0_mr[1270] UCG_FONT_SECTION("ucg_font_f
   76,66,79,6,0,0};
 /*
   Fontname: FreeType-fixed_v01-Medium-R-Normal--8-80-72-72-P-51-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 176/181
   BBX Build Mode: 0
 */
@@ -26386,7 +26387,7 @@ const ucg_fntpgm_uint8_t ucg_font_fixed_v0_tf[1810] UCG_FONT_SECTION("ucg_font_f
   0,0};
 /*
   Fontname: FreeType-fixed_v01-Medium-R-Normal--8-80-72-72-P-51-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 18/181
   BBX Build Mode: 0
 */
@@ -26405,7 +26406,7 @@ const ucg_fntpgm_uint8_t ucg_font_fixed_v0_tn[182] UCG_FONT_SECTION("ucg_font_fi
   233,116,40,2,0,0};
 /*
   Fontname: FreeType-fixed_v01-Medium-R-Normal--8-80-72-72-P-51-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 95/181
   BBX Build Mode: 0
 */
@@ -49154,7 +49155,7 @@ const ucg_fntpgm_uint8_t ucg_font_ncenR24_tr[3736] UCG_FONT_SECTION("ucg_font_nc
   163,131,8,57,26,0,0,0};
 /*
   Fontname: FreeType-Org_v01-Medium-R-Normal--8-80-72-72-P-43-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 189/194
   BBX Build Mode: 1
 */
@@ -49301,7 +49302,7 @@ const ucg_fntpgm_uint8_t ucg_font_orgv01_hf[2227] UCG_FONT_SECTION("ucg_font_org
   6,0,0};
 /*
   Fontname: FreeType-Org_v01-Medium-R-Normal--8-80-72-72-P-43-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 18/194
   BBX Build Mode: 1
 */
@@ -49320,7 +49321,7 @@ const ucg_fntpgm_uint8_t ucg_font_orgv01_hn[176] UCG_FONT_SECTION("ucg_font_orgv
   };
 /*
   Fontname: FreeType-Org_v01-Medium-R-Normal--8-80-72-72-P-43-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 95/194
   BBX Build Mode: 1
 */
@@ -49385,7 +49386,7 @@ const ucg_fntpgm_uint8_t ucg_font_orgv01_hr[915] UCG_FONT_SECTION("ucg_font_orgv
   3,0,0};
 /*
   Fontname: FreeType-Org_v01-Medium-R-Normal--8-80-72-72-P-43-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 189/194
   BBX Build Mode: 0
 */
@@ -49492,7 +49493,7 @@ const ucg_fntpgm_uint8_t ucg_font_orgv01_tf[1597] UCG_FONT_SECTION("ucg_font_org
   1,255,10,116,94,69,40,24,82,170,5,0,0};
 /*
   Fontname: FreeType-Org_v01-Medium-R-Normal--8-80-72-72-P-43-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 18/194
   BBX Build Mode: 0
 */
@@ -49508,7 +49509,7 @@ const ucg_fntpgm_uint8_t ucg_font_orgv01_tn[136] UCG_FONT_SECTION("ucg_font_orgv
   58,6,97,42,66,1,0,0};
 /*
   Fontname: FreeType-Org_v01-Medium-R-Normal--8-80-72-72-P-43-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 95/194
   BBX Build Mode: 0
 */
@@ -50084,7 +50085,7 @@ const ucg_fntpgm_uint8_t ucg_font_pixelle_micro_tr[704] UCG_FONT_SECTION("ucg_fo
   };
 /*
   Fontname: roFont10
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 3
 */
@@ -50281,7 +50282,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont10_8f[3030] UCG_FONT_SECTION("ucg_font_
   169,93,74,5,0,0};
 /*
   Fontname: roFont10
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 3
 */
@@ -50370,7 +50371,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont10_8r[1296] UCG_FONT_SECTION("ucg_font_
   };
 /*
   Fontname: roFont10
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 2
 */
@@ -50532,7 +50533,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont10_mf[2478] UCG_FONT_SECTION("ucg_font_
   244,38,98,145,68,36,17,137,140,34,18,0,0,0};
 /*
   Fontname: roFont10
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 2
 */
@@ -50604,7 +50605,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont10_mr[1037] UCG_FONT_SECTION("ucg_font_
   73,73,59,11,0,127,6,205,244,249,6,0,0};
 /*
   Fontname: roFont11
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 3
 */
@@ -50803,7 +50804,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont11_8f[3070] UCG_FONT_SECTION("ucg_font_
   8,131,159,113,34,156,233,71,131,92,104,4,0,0};
 /*
   Fontname: roFont11
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 3
 */
@@ -50891,7 +50892,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont11_8r[1292] UCG_FONT_SECTION("ucg_font_
   161,39,7,127,7,8,131,159,63,4,0,0};
 /*
   Fontname: roFont11
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 2
 */
@@ -51076,7 +51077,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont11_mf[2837] UCG_FONT_SECTION("ucg_font_
   52,154,0,0,0};
 /*
   Fontname: roFont11
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 2
 */
@@ -51158,7 +51159,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont11_mr[1195] UCG_FONT_SECTION("ucg_font_
   206,17,127,7,222,248,249,55,0,0,0};
 /*
   Fontname: roFont12
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 3
 */
@@ -51361,7 +51362,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont12_8f[3125] UCG_FONT_SECTION("ucg_font_
   46,52,2,0,0};
 /*
   Fontname: roFont12
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 3
 */
@@ -51450,7 +51451,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont12_8r[1304] UCG_FONT_SECTION("ucg_font_
   7,8,131,159,63,4,0,0};
 /*
   Fontname: roFont12
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 2
 */
@@ -51640,7 +51641,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont12_mf[2920] UCG_FONT_SECTION("ucg_font_
   73,22,13,105,52,1,0,0};
 /*
   Fontname: roFont12
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 2
 */
@@ -51723,7 +51724,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont12_mr[1204] UCG_FONT_SECTION("ucg_font_
   55,0,0,0};
 /*
   Fontname: roFont15
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 3
 */
@@ -51967,7 +51968,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont15_8f[3778] UCG_FONT_SECTION("ucg_font_
   0,0};
 /*
   Fontname: roFont15
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 3
 */
@@ -52074,7 +52075,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont15_8r[1590] UCG_FONT_SECTION("ucg_font_
   7,63,127,8,0,0};
 /*
   Fontname: roFont15
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 2
 */
@@ -52298,7 +52299,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont15_mf[3464] UCG_FONT_SECTION("ucg_font_
   140,6,185,52,68,0,0,0};
 /*
   Fontname: roFont15
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 2
 */
@@ -52396,7 +52397,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont15_mr[1452] UCG_FONT_SECTION("ucg_font_
   157,159,0,127,7,255,249,243,255,3,0,0};
 /*
   Fontname: roFont17
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 3
 */
@@ -52723,7 +52724,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont17_8f[5109] UCG_FONT_SECTION("ucg_font_
   107,73,1,0,0};
 /*
   Fontname: roFont17
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 3
 */
@@ -52862,7 +52863,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont17_8r[2104] UCG_FONT_SECTION("ucg_font_
   252,248,255,255,151,0,0,0};
 /*
   Fontname: roFont17
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 2
 */
@@ -53160,7 +53161,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont17_mf[4648] UCG_FONT_SECTION("ucg_font_
   67,99,193,74,66,0,0,0};
 /*
   Fontname: roFont17
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 2
 */
@@ -53287,7 +53288,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont17_mr[1913] UCG_FONT_SECTION("ucg_font_
   8,30,199,63,254,127,13,0,0};
 /*
   Fontname: roFont22
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 3
 */
@@ -53627,7 +53628,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont22_8f[5312] UCG_FONT_SECTION("ucg_font_
   };
 /*
   Fontname: roFont22
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 18/256
   BBX Build Mode: 3
 */
@@ -53661,7 +53662,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont22_8n[421] UCG_FONT_SECTION("ucg_font_p
   22,15,31,0,0};
 /*
   Fontname: roFont22
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 3
 */
@@ -53803,7 +53804,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont22_8r[2158] UCG_FONT_SECTION("ucg_font_
   6,0,127,10,16,7,252,240,255,255,47,1,0,0};
 /*
   Fontname: roFont22
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 2
 */
@@ -54155,7 +54156,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont22_mf[5517] UCG_FONT_SECTION("ucg_font_
   83,50,7,66,7,161,146,67,87,70,0,0,0};
 /*
   Fontname: roFont22
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 18/256
   BBX Build Mode: 2
 */
@@ -54189,7 +54190,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont22_mn[425] UCG_FONT_SECTION("ucg_font_p
   73,18,82,202,227,12,0,0,0};
 /*
   Fontname: roFont22
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 2
 */
@@ -54340,7 +54341,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont22_mr[2288] UCG_FONT_SECTION("ucg_font_
   };
 /*
   Fontname: roFont29
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 3
 */
@@ -54806,7 +54807,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont29_8f[7335] UCG_FONT_SECTION("ucg_font_
   76,89,58,84,0,0,0};
 /*
   Fontname: roFont29
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 18/256
   BBX Build Mode: 3
 */
@@ -54847,7 +54848,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont29_8n[532] UCG_FONT_SECTION("ucg_font_p
   14,0,0,0};
 /*
   Fontname: roFont29
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 3
 */
@@ -55043,7 +55044,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont29_8r[3017] UCG_FONT_SECTION("ucg_font_
   195,255,255,255,127,2,0,0,0};
 /*
   Fontname: roFont29
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 224/256
   BBX Build Mode: 2
 */
@@ -55501,7 +55502,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont29_mf[7202] UCG_FONT_SECTION("ucg_font_
   0,0};
 /*
   Fontname: roFont29
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 18/256
   BBX Build Mode: 2
 */
@@ -55541,7 +55542,7 @@ const ucg_fntpgm_uint8_t ucg_font_profont29_mn[514] UCG_FONT_SECTION("ucg_font_p
   0,0};
 /*
   Fontname: roFont29
-  Copyright: ProFont Distribution 2.2 Ñ Generated by Fontographer 4.1.5
+  Copyright: ProFont Distribution 2.2 ï¿½ Generated by Fontographer 4.1.5
   Glyphs: 96/256
   BBX Build Mode: 2
 */
@@ -68899,7 +68900,7 @@ const ucg_fntpgm_uint8_t ucg_font_timR24_tr[3352] UCG_FONT_SECTION("ucg_font_tim
   163,131,8,185,18,0,0,0};
 /*
   Fontname: FreeType-Teachers Pet Sans Serif Bold-Medium-R-Normal--8-80-72-72-P-61-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 176/178
   BBX Build Mode: 1
 */
@@ -69089,7 +69090,7 @@ const ucg_fntpgm_uint8_t ucg_font_tpssb_hf[2923] UCG_FONT_SECTION("ucg_font_tpss
   82,36,105,80,45,146,52,68,0,0,0};
 /*
   Fontname: FreeType-Teachers Pet Sans Serif Bold-Medium-R-Normal--8-80-72-72-P-61-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 18/178
   BBX Build Mode: 1
 */
@@ -69112,7 +69113,7 @@ const ucg_fntpgm_uint8_t ucg_font_tpssb_hn[246] UCG_FONT_SECTION("ucg_font_tpssb
   51,232,152,10,0,0};
 /*
   Fontname: FreeType-Teachers Pet Sans Serif Bold-Medium-R-Normal--8-80-72-72-P-61-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 95/178
   BBX Build Mode: 1
 */
@@ -69212,7 +69213,7 @@ const ucg_fntpgm_uint8_t ucg_font_tpssb_hr[1477] UCG_FONT_SECTION("ucg_font_tpss
   252,95,0,0,0};
 /*
   Fontname: FreeType-Teachers Pet Sans Serif Bold-Medium-R-Normal--8-80-72-72-P-61-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 176/178
   BBX Build Mode: 0
 */
@@ -69350,7 +69351,7 @@ const ucg_fntpgm_uint8_t ucg_font_tpssb_tf[2093] UCG_FONT_SECTION("ucg_font_tpss
   11,145,88,196,147,164,40,36,73,40,0,0,0};
 /*
   Fontname: FreeType-Teachers Pet Sans Serif Bold-Medium-R-Normal--8-80-72-72-P-61-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 18/178
   BBX Build Mode: 0
 */
@@ -69370,7 +69371,7 @@ const ucg_fntpgm_uint8_t ucg_font_tpssb_tn[203] UCG_FONT_SECTION("ucg_font_tpssb
   146,132,2,58,6,162,73,33,20,0,0};
 /*
   Fontname: FreeType-Teachers Pet Sans Serif Bold-Medium-R-Normal--8-80-72-72-P-61-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 95/178
   BBX Build Mode: 0
 */
@@ -69445,7 +69446,7 @@ const ucg_fntpgm_uint8_t ucg_font_tpssb_tr[1080] UCG_FONT_SECTION("ucg_font_tpss
   37,106,139,137,100,0,0,0};
 /*
   Fontname: FreeType-Teachers Pet Sans Serif-Medium-R-Normal--8-80-72-72-P-18-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 179/633
   BBX Build Mode: 1
 */
@@ -69630,7 +69631,7 @@ const ucg_fntpgm_uint8_t ucg_font_tpss_hf[2832] UCG_FONT_SECTION("ucg_font_tpss_
   };
 /*
   Fontname: FreeType-Teachers Pet Sans Serif-Medium-R-Normal--8-80-72-72-P-18-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 18/633
   BBX Build Mode: 1
 */
@@ -69652,7 +69653,7 @@ const ucg_fntpgm_uint8_t ucg_font_tpss_hn[232] UCG_FONT_SECTION("ucg_font_tpss_h
   211,246,164,28,9,1,0,0};
 /*
   Fontname: FreeType-Teachers Pet Sans Serif-Medium-R-Normal--8-80-72-72-P-18-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 95/633
   BBX Build Mode: 1
 */
@@ -69749,7 +69750,7 @@ const ucg_fntpgm_uint8_t ucg_font_tpss_hr[1430] UCG_FONT_SECTION("ucg_font_tpss_
   236,252,95,0,0,0};
 /*
   Fontname: FreeType-Teachers Pet Sans Serif-Medium-R-Normal--8-80-72-72-P-18-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 179/633
   BBX Build Mode: 0
 */
@@ -69881,7 +69882,7 @@ const ucg_fntpgm_uint8_t ucg_font_tpss_tf[1997] UCG_FONT_SECTION("ucg_font_tpss_
   50,155,114,230,45,25,194,80,75,22,0,0,0};
 /*
   Fontname: FreeType-Teachers Pet Sans Serif-Medium-R-Normal--8-80-72-72-P-18-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 18/633
   BBX Build Mode: 0
 */
@@ -69901,7 +69902,7 @@ const ucg_fntpgm_uint8_t ucg_font_tpss_tn[194] UCG_FONT_SECTION("ucg_font_tpss_t
   0,0};
 /*
   Fontname: FreeType-Teachers Pet Sans Serif-Medium-R-Normal--8-80-72-72-P-18-ISO10646-1
-  Copyright: © www.orgdot.com
+  Copyright: ï¿½ www.orgdot.com
   Glyphs: 95/633
   BBX Build Mode: 0
 */
